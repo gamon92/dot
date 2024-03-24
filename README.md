@@ -50,7 +50,7 @@ Supported methods:
 Download and run the dot executable for your OS:
 
 - Windows (Tested on Windows 10 and 11):
-  - Download `dot.zip` from [here](https://drive.google.com/file/d/10LXgtE721YPXdHfzcDUp6ba-9klueocR/view), unzip it and then run `dot.exe`
+  - Download `dot.zip` from [here](https://drive.google.com/file/d/10fdnSszaEbpGdCKxxeBFXQrkagxe3-RT/view), unzip it and then run `dot.exe`
 - Ubuntu:
   - ToDo
 - Mac (Tested on Apple M2 Sonoma 14.0):
@@ -147,7 +147,7 @@ pip install -e .
 
 ##### Download Models
 
-- Download dot model checkpoints from [here](https://drive.google.com/file/d/1nL3WkntTrVBZVQvOF2i7clY8eFRqSr8L/view)
+- Download dot model checkpoints from [here](https://drive.google.com/file/d/1Qaf9hE62XSvgmxR43dfiwEPWWS_dXSCE/view?usp=sharing)
 - Unzip the downloaded file in the root of this project
 
 #### CLI Usage
@@ -228,14 +228,11 @@ Watch the following demo video for better understanding of the control options:
 2. Run the container
 
     ```
-    xhost +
     docker run -ti --gpus all \
     -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -e PYTHONUNBUFFERED=1 \
-    -e DISPLAY \
     -v .:/dot \
-    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --runtime nvidia \
     --entrypoint /bin/bash \
     -p 8080:8080 \
@@ -287,11 +284,11 @@ Watch the following demo video for better understanding of the control options:
     -e PYTHONUNBUFFERED=1 \
     -e DISPLAY=$IP:0 \
     -v .:/dot \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
     --runtime nvidia \
     --entrypoint /bin/bash \
     -p 8080:8080 \
     --device=/dev/video0:/dev/video0 \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
     dot
     ```
 
